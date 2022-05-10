@@ -88,17 +88,25 @@ public class AdminPanelActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo i = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
+        //Get Selected Email ID
+        String str = listForView.get(i.position).toString();
+        String[] strArr = str.split(",");
+        String email = strArr[2].toString();
+
         switch (item.getItemId())
         {
             case R.id.action_admin_edit:
-                String str = listForView.get(i.position).toString();
-                String[] strArr = str.split(",");
-                String email = strArr[2].toString();
                 Intent intent = new Intent(AdminPanelActivity.this,EditStudentActivity.class);
                 intent.putExtra("emailID",email);
                 startActivity(intent);
 
                 //Toast.makeText(this, ""+ strArr[2] , Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_admin_delete:
+                dbHelper.deletStudent(email);
+                Toast.makeText(this, "Delete Student Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AdminPanelActivity.this,AdminPanelActivity.class));
+                finish();
                 return true;
         }
         return (super.onContextItemSelected(item));

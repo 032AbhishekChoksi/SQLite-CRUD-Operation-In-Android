@@ -94,4 +94,9 @@ public class DBHelper extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL("UPDATE tblStudent SET name='"+ name +"',email='" + newEmail + "' WHERE email='"+ oldEmail +"'");
     }
 
+    //Delete Student
+    public void deletStudent(String email){
+        //this.getWritableDatabase().delete("tblStudent","email='"+email+"'",null);
+        this.getWritableDatabase().execSQL("DELETE FROM tblStudent WHERE email='"+ email +"'");
+    }
 }
