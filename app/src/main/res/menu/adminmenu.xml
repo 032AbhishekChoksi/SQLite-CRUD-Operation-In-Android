@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/AddStudentMenu"
+        android:icon="@drawable/ic_baseline_person_add_30"
+        android:title="Add Student"
+        app:showAsAction="always"/>
+</menu>
