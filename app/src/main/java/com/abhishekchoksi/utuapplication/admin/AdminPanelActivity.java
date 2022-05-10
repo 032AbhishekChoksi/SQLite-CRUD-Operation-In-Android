@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abhishekchoksi.utuapplication.DBHelper;
+import com.abhishekchoksi.utuapplication.MainActivity;
 import com.abhishekchoksi.utuapplication.R;
 
 import java.util.ArrayList;
@@ -93,6 +94,10 @@ public class AdminPanelActivity extends AppCompatActivity {
                 String str = listForView.get(i.position).toString();
                 String[] strArr = str.split(",");
                 String email = strArr[2].toString();
+                Intent intent = new Intent(AdminPanelActivity.this,EditStudentActivity.class);
+                intent.putExtra("emailID",email);
+                startActivity(intent);
+
                 //Toast.makeText(this, ""+ strArr[2] , Toast.LENGTH_SHORT).show();
                 return true;
         }

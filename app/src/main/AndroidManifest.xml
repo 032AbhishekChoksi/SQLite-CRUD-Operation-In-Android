@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.abhishekchoksi.utuapplication">
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"
+
+    <uses-permission
+        android:name="android.permission.WRITE_APN_SETTINGS"
         tools:ignore="ProtectedPermissions" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UTUApplication">
+        <activity
+            android:name=".admin.EditStudentActivity"
+            android:exported="false" />
         <activity
             android:name=".admin.AddStudentActivity"
             android:exported="false" />

@@ -54,6 +54,7 @@ public class AddStudentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AddStudentActivity.this,AdminPanelActivity.class));
+                finish();
             }
         });
     }

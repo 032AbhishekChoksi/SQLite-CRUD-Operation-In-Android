@@ -71,7 +71,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //displayStudent By Email ID
-    public ArrayList displayStudentsByEmail(String email){
+    public ArrayList displayStudentsByEmail(String email)
+    {
         ArrayList list = new ArrayList();
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM tblStudent WHERE email='"+email+"'",null);
         while(cursor.moveToNext())
@@ -80,4 +81,17 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return list;
     }
+
+    //displayStudent By Email ID For Edit
+    public Cursor displayStudentsByEmailEdit(String email)
+    {
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM tblStudent WHERE email='"+email+"'",null);
+        return cursor;
+    }
+
+    //Update Student Details
+    public void updateStudentByEmail(String name,String newEmail,String oldEmail){
+        this.getWritableDatabase().execSQL("UPDATE tblStudent SET name='"+ name +"',email='" + newEmail + "' WHERE email='"+ oldEmail +"'");
+    }
+
 }
